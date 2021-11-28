@@ -17,10 +17,10 @@ const initialValues = {
 }
 
 const Login = props => {
-    const { path, text } = props
+    const { path, text, loginSubmit } = props
 
     const onSubmit = (values) => {
-        
+        loginSubmit(values)
     }
 
     return (

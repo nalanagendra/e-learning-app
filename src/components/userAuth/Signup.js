@@ -133,7 +133,7 @@ const Signup = props => {
                                 <div className="text-center">
                                     <Button type="submit">Login</Button>
                                 </div>
-                                <div className="text-center mt-3">
+                                <div className="text-center mt-3 mb-5">
                                     <Link to="/tutor/login">Already have an account?</Link>
                                 </div>
                             </Form>   
