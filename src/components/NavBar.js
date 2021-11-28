@@ -3,9 +3,9 @@ import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap"
 import { Route, Switch, NavLink, Link } from 'react-router-dom' 
 
 import Home from './Home'
-import StudentLogin from './userAuth/StudentLogin'
-import TutorLogin from './userAuth/TutorLogin'
-import Signup from './userAuth/Signup'
+import StudentLogin from './studentModule/StudentLogin'
+import TutorLogin from './tutorModule/TutorLogin'
+import TutorRegister from './tutorModule/TutorRegister'
 
 const NavBar = props => {
     return (
@@ -31,7 +31,7 @@ const NavBar = props => {
                 <Route path="/" component={Home} exact />
                 <Route path="/student/login" component={StudentLogin} exact />
                 <Route path="/tutor/login" component={TutorLogin} exact />
-                <Route path="/tutor/signup" component={Signup} exact />
+                <Route path="/tutor/signup" component={TutorRegister} exact />
             </Switch>
         </div>
     )

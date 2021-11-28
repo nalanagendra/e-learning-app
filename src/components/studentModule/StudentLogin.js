@@ -1,5 +1,5 @@
-import React from './Login' 
-import Login from './Login'
+import React from 'react' 
+import Login from '../reusableComponents/Login'
 import { Container } from 'react-bootstrap'
 
 const StudentLogin = props => {

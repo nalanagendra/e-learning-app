@@ -4,7 +4,7 @@ import { Formik } from 'formik'
 import * as Yup from 'yup'
 import { Link } from 'react-router-dom'
 
-import Inputbox from "../reusableComponents/Inputbox"
+import Inputbox from "./Inputbox"
 
 const schema = Yup.object().shape({
     email: Yup.string().email("Enter valid email.").required("Required!"),
