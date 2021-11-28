@@ -10,7 +10,7 @@ import Signup from './userAuth/Signup'
 const NavBar = props => {
     return (
         <div>
-            <Navbar bg="primary" expand="lg" variant="dark">
+            <Navbar bg="primary" expand="lg" variant="dark" style={{position: "sticky", top: "0"}}>
                 <Container fluid>
                    <Navbar.Brand as={Link} to="/">E-learning</Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
