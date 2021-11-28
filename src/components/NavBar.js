@@ -20,7 +20,7 @@ const NavBar = props => {
                         <Nav.Link as={NavLink} to="/student/login" exact>Student</Nav.Link>
                         <NavDropdown title="Tutor" id="basic-nav-dropdown">
                             <NavDropdown.Item as={NavLink} to="/tutor/login">Login</NavDropdown.Item>
-                            <NavDropdown.Item as={NavLink} to="/tutor/signup">Sign up</NavDropdown.Item>
+                            <NavDropdown.Item as={NavLink} to="/tutor/signup">Register</NavDropdown.Item>
                         </NavDropdown>
                     </Nav>
                     </Navbar.Collapse>
