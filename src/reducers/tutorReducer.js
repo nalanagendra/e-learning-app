@@ -10,6 +10,7 @@ const tutorReducer = (state=initialTutorState, action) => {
             }
         }
 
+        case "TUTOR_REGISTER_ERROR" : 
         case "TUTOR_LOGIN_ERROR" : {
             return {
                 ...state,

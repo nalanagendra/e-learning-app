@@ -32,8 +32,10 @@ const schema = Yup.object().shape({
 })
 
 const Register = props => {
+    const { registerSubmit } = props
+
     const onSubmit = (values) => {
-        
+        registerSubmit(values)
     }
 
     return (
@@ -129,7 +131,7 @@ const Register = props => {
                                 </Inputbox>
                             </Form.Group>
                             <div className="text-center">
-                                <Button type="submit">Login</Button>
+                                <Button type="submit">Register</Button>
                             </div>
                             <div className="text-center mt-3 mb-5">
                                 <Link to="/tutor/login">Already have an account?</Link>

@@ -1,6 +1,7 @@
 import axios from 'axios'
 import jwt_decode from "jwt-decode";
 
+// Login tutor 
 export const startTutorLogin = (loginData, props) => {
     return (dispatch) => {
         axios.post("https://dct-e-learning.herokuapp.com/api/admin/login", loginData)
@@ -30,6 +31,33 @@ const tutorLoginSuccess = (loginData) => {
 const tutorLoginError = (error) => {
     return {
         type : "TUTOR_LOGIN_ERROR",
+        payload : error
+    }
+}
+
+//Register tutor
+export const startTutorRegister = (registerData, props) => {
+    return (dispatch) => {
+        axios.post("https://dct-e-learning.herokuapp.com/api/admin/register", registerData)
+            .then(response => {
+                if(response.data.hasOwnProperty('errors')) {
+                    console.log(response.data)
+                    dispatch(tutorRegisterError(response.errors))
+
+                } else {
+                    props.history.push("/tutor/login")
+                }
+            })
+            .catch(error => {
+                console.log("catch", error)
+                dispatch(tutorRegisterError("Network Error"))
+            })
+    }
+}
+
+const tutorRegisterError = (error) => {
+    return {
+        type : "TUTOR_REGISTER_ERROR",
         payload : error
     }
 }
