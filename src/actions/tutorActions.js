@@ -11,6 +11,7 @@ export const startTutorLogin = (loginData, props) => {
             } else {
                 const userData = jwt_decode(response.data.token)
                 localStorage.setItem("user", JSON.stringify(userData))
+                localStorage.setItem("token", response.data.token)
                 dispatch(tutorLoginSuccess(userData))
                 props.history.push("/")
             }
