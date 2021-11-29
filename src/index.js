@@ -7,8 +7,19 @@ import { BrowserRouter } from 'react-router-dom'
 import { Provider } from 'react-redux'
 
 import configureStore from './store/store'
+import { storeTutorInfo } from './actions/tutorActions'
+import { storeStudentInfo } from './actions/studentActions'
 
-const store = configureStore()
+const store = configureStore() 
+
+if(localStorage.getItem("user")) {
+  const user = JSON.parse(localStorage.getItem("user"))
+  if(user.role === "admin") {
+    store.dispatch(storeTutorInfo(user))
+  } else if(user.role === "student") {
+    store.dispatch(storeStudentInfo(user))
+  }
+} 
 
 ReactDOM.render(
   <Provider store={store}>

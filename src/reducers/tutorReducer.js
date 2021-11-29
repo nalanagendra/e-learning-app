@@ -2,16 +2,15 @@ const initialTutorState = {errors: "", data: {}, isLoading: false}
 
 const tutorReducer = (state=initialTutorState, action) => {
     switch(action.type) {
-        case "TUTOR_LOGIN_SUCCESS" : {
+        case "STORE_TUTOR_INFO" : {
             return {
                 ...state,
                 errors: "",
                 data: {...action.payload}
             }
         }
-
-        case "TUTOR_REGISTER_ERROR" : 
-        case "TUTOR_LOGIN_ERROR" : {
+ 
+        case "TUTOR_ERROR" : {
             return {
                 ...state,
                 errors : action.payload,

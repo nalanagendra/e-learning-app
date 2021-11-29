@@ -7,31 +7,24 @@ export const startTutorLogin = (loginData, props) => {
         axios.post("https://dct-e-learning.herokuapp.com/api/admin/login", loginData)
         .then(response => {
             if(response.data.hasOwnProperty("errors")) {
-                dispatch(tutorLoginError(response.errors))
+                dispatch(tutorError(response.errors))
             } else {
                 const userData = jwt_decode(response.data.token)
                 localStorage.setItem("user", JSON.stringify(userData))
                 localStorage.setItem("token", response.data.token)
-                dispatch(tutorLoginSuccess(userData))
+                dispatch(storeTutorInfo(userData))
                 props.history.push("/")
             }
         })
         .catch(error => {
-            dispatch(tutorLoginError("Network Error"))
+            dispatch(tutorError("Network Error"))
         })
     }
 }
 
-const tutorLoginSuccess = (loginData) => {
+const tutorError = (error) => {
     return {
-        type : "TUTOR_LOGIN_SUCCESS",
-        payload : loginData
-    }
-}
-
-const tutorLoginError = (error) => {
-    return {
-        type : "TUTOR_LOGIN_ERROR",
+        type : "TUTOR_ERROR",
         payload : error
     }
 }
@@ -43,7 +36,7 @@ export const startTutorRegister = (registerData, props) => {
             .then(response => {
                 if(response.data.hasOwnProperty('errors')) {
                     console.log(response.data)
-                    dispatch(tutorRegisterError(response.errors))
+                    dispatch(tutorError(response.errors))
 
                 } else {
                     props.history.push("/tutor/login")
@@ -51,15 +44,34 @@ export const startTutorRegister = (registerData, props) => {
             })
             .catch(error => {
                 console.log("catch", error)
-                dispatch(tutorRegisterError("Network Error"))
+                dispatch(tutorError("Network Error"))
             })
     }
 }
 
-const tutorRegisterError = (error) => {
+//get tutor info 
+// export const startGetTutorInfo = () => {
+//     console.log("tutor get info")
+//     return (dispatch) => {
+//         axios.get("https://dct-e-learning.herokuapp.com/api/admin/account", {
+//             headers : {
+//                 Authorization : localStorage.getItem("token")
+//             }
+//         })
+//             .then(response => {
+//                 dispatch(storeTutorInfo(response.data)) 
+//             })
+//             .catch(error => {
+//                 dispatch(tutorError(error.errors))
+//             })
+//     }
+// }
+
+//store tutor info 
+export const storeTutorInfo = (tutorInfo) => {
     return {
-        type : "TUTOR_REGISTER_ERROR",
-        payload : error
+        type : "STORE_TUTOR_INFO",
+        payload : tutorInfo
     }
 }
 

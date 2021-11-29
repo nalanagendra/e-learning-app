@@ -2,7 +2,7 @@ const initialStudentState = { errors: "", data: {}, isLoading: false }
 
 const studentReducer = (state=initialStudentState, action) => {
     switch(action.type) {
-        case "STUDENT_LOGIN_SUCCESS" : {
+        case "STORE_STUDENT_INFO" : {
             return {
                 ...state,
                 errors: "",
@@ -10,7 +10,7 @@ const studentReducer = (state=initialStudentState, action) => {
             }
         }
 
-        case "STUDENT_LOGIN_ERROR" : {
+        case "STUDENT_ERROR" : {
             return {
                 ...state, 
                 errors : action.payload, 
