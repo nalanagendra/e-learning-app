@@ -1,6 +1,6 @@
 # E-learning
 
-This is a E-learning platfrom built on ReactJS and Redux
+This is a E-learning platfrom built on ReactJS and Redux.
 
 ## 🛠  Tech stack - (React/Redux)
 - 💻  Javascipt | ES6
