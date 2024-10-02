@@ -1,4 +1,4 @@
-# E-learning
+# E-learning.
 
 This is a E-learning platfrom built on ReactJS and Redux.
 
